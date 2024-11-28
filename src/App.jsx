@@ -3,11 +3,13 @@ import BentoGrid from "./components/BentoGrid";
 import Canvas from "./components/Canvas";
 import Footer from "./components/Footer";
 import HeaderTitle from "./components/HeaderTitle";
+import Loading from "./components/Loader";
 import Navbar from "./components/Navbar";
 import Sections from "./components/Sections";
 
 function App() {
   const [showCanvas, setShowCanvas] = useState(true);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -27,23 +29,35 @@ function App() {
     };
   }, []);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div className='h-[100%] w-[100%] bg-[#e5e4e2] overflow-hidden'>
-      <Navbar />
-      <HeaderTitle />
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <div className='h-[100%] w-[100%] bg-[#e5e4e2] overflow-hidden'>
+          <Navbar />
+          <HeaderTitle />
+          <Sections />
 
-      <Sections />
+          {showCanvas && (
+            <div className='relative overflow-hidden'>
+              <Canvas />
+            </div>
+          )}
 
-      {showCanvas && (
-        <div className='relative overflow-hidden'>
-          <Canvas />
+          <BentoGrid />
+          <Footer />
         </div>
       )}
-
-      <BentoGrid />
-
-      <Footer />
-    </div>
+    </>
   );
 }
 
