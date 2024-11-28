@@ -5,23 +5,17 @@ const Loading = () => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    const tl = gsap.timeline({ repeat: -1 }); // Infinite loop
+    const tl = gsap.timeline({ repeat: -1 });
 
-    // Animated lines
     const lines = containerRef.current.querySelectorAll(".line");
 
-    // Animate individual lines with staggered delays and durations for a wave effect
     lines.forEach((line, index) => {
-      tl.to(
-        line,
-        {
-          scaleY: 1,
-          duration: Math.random() * 0.8 + 0.2, // Random duration between 0.2s and 1s
-          delay: index * 0.1, // Staggered delays based on line index
-          ease: "power1.inOut",
-        },
-        0, // Start animations immediately
-      );
+      tl.to(line, {
+        scaleY: 1,
+        duration: Math.random() * 0.8 + 0.2,
+        delay: index * 0.1,
+        ease: "power1.inOut",
+      });
       tl.to(
         line,
         {
@@ -29,7 +23,7 @@ const Loading = () => {
           duration: Math.random() * 0.8 + 0.2,
           ease: "power1.inOut",
         },
-        "+=0.5", // Delay second animation by half the duration of the first
+        "+=0.5",
       );
     });
   }, []);
