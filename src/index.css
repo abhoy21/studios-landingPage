@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.text-loop-container {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 100%;
+  position: absolute;
+  top: 58%;
+
+  z-index: 2 !important;
+}
+
+.text-loop {
+  display: inline-block;
+  animation: scroll 30s linear infinite;
+  width: 200%;
+}
+
+.text-item {
+  display: inline-block;
+  padding: 0 50px;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
