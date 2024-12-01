@@ -1,54 +1,124 @@
 import { gsap } from "gsap";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
-const Loading = () => {
+const IDXLoading = () => {
+  const [finalText] = useState([
+    "Intelligent Development",
+    "Experimental Workspace",
+  ]);
+  const lineRefs = useRef([]);
   const containerRef = useRef(null);
 
+  const generateRandomChars = (length) => {
+    const chars =
+      "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+->/?[]{}|<>";
+    return Array.from(
+      { length },
+      () => chars[Math.floor(Math.random() * chars.length)],
+    );
+  };
+
   useEffect(() => {
-    const tl = gsap.timeline({ repeat: -1 });
+    if (!containerRef.current) return;
 
-    const lines = containerRef.current.querySelectorAll(".line");
+    const masterTimeline = gsap.timeline({ repeat: -1 });
+    const simultaneousTimeline = gsap.timeline();
 
-    lines.forEach((line, index) => {
-      tl.to(line, {
-        scaleY: 1,
-        duration: Math.random() * 0.8 + 0.2,
-        delay: index * 0.1,
-        ease: "power1.inOut",
+    finalText.forEach((line, lineIndex) => {
+      const randomCharsLine = generateRandomChars(line.length);
+      const lineElement = lineRefs.current[lineIndex];
+
+      lineElement.innerHTML = "";
+
+      const ParentcharContainer = document.createElement("div");
+      ParentcharContainer.style.position = "relative";
+      ParentcharContainer.style.display = "inline-block";
+      lineElement.appendChild(ParentcharContainer);
+
+      const charContainer = document.createElement("div");
+      charContainer.style.position = "absolute";
+      charContainer.style.top = "0px";
+      charContainer.style.right = "10em";
+      charContainer.style.display = "inline-block";
+      ParentcharContainer.appendChild(charContainer);
+
+      const randomSpans = randomCharsLine.map((char, charIndex) => {
+        const span = document.createElement("span");
+        span.textContent = char;
+        span.style.position = "absolute";
+        span.style.left = `${charIndex * 0.8}em`;
+        span.style.opacity = "0.1";
+        span.style.color = "white";
+        span.style.transition = "opacity 0.5s";
+        charContainer.appendChild(span);
+        return span;
       });
-      tl.to(
-        line,
-        {
-          scaleY: 0,
-          duration: Math.random() * 0.8 + 0.2,
-          ease: "power1.inOut",
+
+      const finalSpans = line.split("").map((char, charIndex) => {
+        const span = document.createElement("span");
+        span.textContent = char;
+        span.style.position = "absolute";
+        span.style.left = `${charIndex * 0.8}em`;
+        span.style.opacity = "0.05";
+        span.style.color = "white";
+        span.style.transition = "opacity 0.5s";
+        charContainer.appendChild(span);
+        return span;
+      });
+
+      const tl = gsap.timeline();
+
+      simultaneousTimeline;
+      tl.to(randomSpans, {
+        opacity: 0.5,
+        duration: 0.2,
+        stagger: {
+          each: 0.05,
+          from: "random",
         },
-        "+=0.5",
-      );
+      })
+        .to(
+          randomSpans,
+          {
+            opacity: 0,
+            duration: 0.2,
+            stagger: {
+              each: 0.05,
+              from: "random",
+            },
+          },
+          "+=0.1",
+        )
+
+        .to(finalSpans, {
+          opacity: 1,
+          duration: 0.5,
+          stagger: {
+            each: 0.05,
+            from: "start",
+          },
+        });
     });
-  }, []);
+    masterTimeline.add(simultaneousTimeline);
+    masterTimeline.set({}, {}, "+=0.5");
+  }, [finalText]);
 
   return (
     <div
       ref={containerRef}
-      className='w-screen h-screen fixed top-0 left-0 flex items-center justify-center z-50 bg-black'
+      className='fixed inset-0 bg-black flex flex-col items-center justify-center text-white'
     >
-      <div className='relative w-24 h-24 flex justify-center items-center'>
-        <div className='absolute rounded-full bg-[#e5e4e2] h-full animate-pulse'></div>
-        <div className='flex space-x-2'>
-          <div className='line w-3 h-16 bg-white animate-wave'></div>
-          <div className='line w-2 h-12 bg-white animate-wave'></div>
-          <div className='line w-1 h-8 bg-white animate-wave'></div>
-        </div>
-      </div>
-
-      <div>
-        <h1 className='text-white text-5xl font-montserrat uppercase'>
-          Loading...
-        </h1>
+      <div className='text-center'>
+        {finalText.map((line, index) => (
+          <div
+            key={index}
+            ref={(el) => (lineRefs.current[index] = el)}
+            className='text-4xl md:text-6xl lg:text-7xl mb-4 font-mono'
+          />
+        ))}
       </div>
     </div>
   );
 };
 
-export default Loading;
+export default IDXLoading;

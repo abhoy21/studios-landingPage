@@ -79,11 +79,11 @@ const Sections = () => {
         className='section relative h-[100vh] w-[100vw] '
       >
         <div>
-          <h3 className='animate-text from-left w-1/3 absolute top-[20%] left-[5%] font-montserrat font-bold text-gray-500 text-4xl uppercase tracking-wider'>
+          <h3 className='animate-text from-left w-1/3 absolute top-[20%] left-[5%] font-montserrat font-bold text-gray-500 text-2xl uppercase tracking-wider'>
             We Don&apos;t Just Build Projects &#45; We Craft Experiences That
             Unleash Your Brand&apos;s Potential, Turning Pixels into Perfection.
           </h3>
-          <h4 className='animate-text from-left absolute top-[40%] left-[22%] font-montserrat font-semibold text-md tracking-widest text-gray-900'>
+          <h4 className='animate-text from-left absolute top-[45%] left-[22%] font-montserrat font-semibold text-md tracking-widest text-gray-900'>
             ...SCROLL TO READ
           </h4>
         </div>
@@ -105,10 +105,10 @@ const Sections = () => {
         className='section relative h-[100vh] w-[100vw]'
       >
         <div>
-          <h3 className='animate-text from-right absolute top-[25%] right-[2%] font-montserrat font-extrabold text-4xl text-gray-700 uppercase tracking-wider'>
+          <h3 className='animate-text from-right absolute top-[25%] right-[2%] font-montserrat font-extrabold text-2xl text-gray-700 uppercase tracking-wider'>
             INNOVATION / THE FUTURE OF CREATIVITY
           </h3>
-          <h4 className='animate-text from-right absolute top-[30%] right-[5%] font-montserrat font-semibold tracking-widest text-4xl text-gray-500 space-y-4'>
+          <h4 className='animate-text from-right absolute top-[30%] right-[5%] font-montserrat font-semibold tracking-widest text-2xl text-gray-500 space-y-4'>
             <div className='flex items-center'>
               <div className='rounded-full bg-gray-800 w-2 h-2 mr-4 animate-pulse' />
               DESIGN WITH PASSION
@@ -124,7 +124,7 @@ const Sections = () => {
           </h4>
         </div>
         <div>
-          <h4 className='animate-text from-left absolute top-[7%] left-[5%] font-montserrat font-semibold tracking-widest text-4xl text-gray-500 space-y-4'>
+          <h4 className='animate-text from-left absolute top-[7%] left-[5%] font-montserrat font-semibold tracking-widest text-2xl text-gray-500 space-y-4'>
             <div className='flex items-center'>
               <div className='rounded-full bg-gray-800 w-2 h-2 mr-4 animate-pulse' />
               SHAPE YOUR VISION
@@ -138,7 +138,7 @@ const Sections = () => {
               OWN YOUR SUCCESS
             </div>
           </h4>
-          <h3 className='animate-text from-left absolute top-[2%] left-[5%] font-montserrat font-extrabold text-4xl text-gray-900 uppercase tracking-wider'>
+          <h3 className='animate-text from-left absolute top-[2%] left-[5%] font-montserrat font-extrabold text-2xl text-gray-900 uppercase tracking-wider'>
             WHERE IMAGINATION MEETS REALITY...
           </h3>
         </div>
@@ -149,10 +149,10 @@ const Sections = () => {
         className='section relative h-[100vh] w-[100vw]'
       >
         <div>
-          <h3 className='animate-text from-right absolute top-[18%] left-[5%] font-montserrat font-extrabold text-4xl text-gray-500 uppercase tracking-wider'>
+          <h3 className='animate-text from-right absolute top-[18%] left-[5%] font-montserrat font-extrabold text-2xl text-gray-500 uppercase tracking-wider'>
             EXCELLENCE / SHAPING TOMORROW&apos;S IDEAS
           </h3>
-          <h4 className='animate-text from-right absolute top-[24%] left-[5%] font-montserrat font-semibold tracking-widest text-4xl text-gray-700 space-y-4'>
+          <h4 className='animate-text from-right absolute top-[24%] left-[5%] font-montserrat font-semibold tracking-widest text-2xl text-gray-700 space-y-4'>
             <div className='flex items-center'>
               <div className='rounded-full bg-gray-800 w-2 h-2 mr-4 animate-pulse' />
               STUDIOS
@@ -169,7 +169,7 @@ const Sections = () => {
         </div>
 
         <div>
-          <h4 className='animate-text from-right absolute top-[10%] right-[3%] font-montserrat font-bold tracking-widest text-4xl text-gray-700 space-y-4'>
+          <h4 className='animate-text from-right absolute top-[12%] right-[3%] font-montserrat font-bold tracking-widest text-2xl text-gray-700 space-y-4'>
             <div className='flex items-center'>
               <div className='rounded-full bg-gray-800 w-2 h-2 mr-4 animate-pulse' />
               BREAK THE RULES
@@ -183,7 +183,7 @@ const Sections = () => {
               UNLOCK LIMITLESS POSSIBILITIES
             </div>
           </h4>
-          <h3 className='animate-text from-right w-1/4 absolute top-[1%] right-[8%] font-montserrat font-extrabold text-4xl text-gray-500 uppercase tracking-wider'>
+          <h3 className='animate-text from-right w-1/3 absolute top-[1%] right-[4%] font-montserrat font-extrabold text-2xl text-gray-500 uppercase tracking-wider'>
             REVOLUTIONIZE YOUR IDEAS, DARE TO DREAM BIG
           </h3>
         </div>
